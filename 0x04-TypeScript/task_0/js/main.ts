@@ -49,3 +49,4 @@ studentsList.forEach((student) => {
 
 table.appendChild(tbody);
 body.appendChild(table);
+
