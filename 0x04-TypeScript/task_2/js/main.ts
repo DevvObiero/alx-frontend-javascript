@@ -56,10 +56,10 @@ console.log(createEmployee(1000));   // Director
 console.log(createEmployee('$500')); // Director
 
 // 1. Define the literal type
-export type Subjects = 'Math' | 'History';
+type Subjects = 'Math' | 'History';
 
 // 2. Function with strict type annotation
-export function teachClass(todayClass: Subjects): string {
+function teachClass(todayClass: Subjects): string {
   if (todayClass === 'Math') {
     return 'Teaching Math';
   }
@@ -68,6 +68,11 @@ export function teachClass(todayClass: Subjects): string {
   }
   return '';
 }
+
+// Test examples
+console.log(teachClass('Math'));    // Teaching Math
+console.log(teachClass('History')); // Teaching History
+
 
 // Test examples
 console.log(teachClass('Math'));    // Teaching Math
