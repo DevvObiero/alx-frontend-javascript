@@ -55,13 +55,24 @@ console.log(createEmployee(200));    // Teacher
 console.log(createEmployee(1000));   // Director
 console.log(createEmployee('$500')); // Director
 
+// 1. Define the literal type
 export type Subjects = 'Math' | 'History';
 
+// 2. Function with strict type annotation
 export function teachClass(todayClass: Subjects): string {
-  if (todayClass === 'Math') return 'Teaching Math';
-  if (todayClass === 'History') return 'Teaching History';
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  }
+  if (todayClass === 'History') {
+    return 'Teaching History';
+  }
   return '';
 }
+
+// Test examples
+console.log(teachClass('Math'));    // Teaching Math
+console.log(teachClass('History')); // Teaching History
+
 
 // Tests
 console.log(teachClass('Math'));     // Teaching Math
