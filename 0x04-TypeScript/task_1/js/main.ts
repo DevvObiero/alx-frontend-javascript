@@ -44,8 +44,10 @@ interface printTeacherFunction {
 
 // 4. printTeacher function (must be a function declaration)
 function printTeacher(firstName: string, lastName: string): string {
-  return `${firstName[0]}. ${lastName}`;
+  firstName = firstName[0];
+  return `${firstName}. ${lastName}`;
 }
+
 
 // Test
 console.log(printTeacher("John", "Doe")); // J. Doe
