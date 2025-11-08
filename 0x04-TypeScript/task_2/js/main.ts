@@ -1,3 +1,13 @@
+// Type literal
+type Subjects = 'Math' | 'History';
+
+// teachClass function
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') return 'Teaching Math';
+  if (todayClass === 'History') return 'Teaching History';
+  // No default return needed because `todayClass` can only be 'Math' | 'History'
+}
+
 // DirectorInterface
 interface DirectorInterface {
   workFromHome(): string;
@@ -43,21 +53,11 @@ function createEmployee(salary: number | string): Director | Teacher {
   if (typeof salary === 'string') {
     salary = parseInt(salary.replace('$', ''));
   }
-
   if (salary < 500) {
     return new Teacher();
   } else {
     return new Director();
   }
-}
-
-// Type literal
-type Subjects = 'Math' | 'History';
-
-// teachClass function
-function teachClass(todayClass: Subjects): string {
-  if (todayClass === 'Math') return 'Teaching Math';
-  return 'Teaching History'; // covers 'History'
 }
 
 // Example usage
