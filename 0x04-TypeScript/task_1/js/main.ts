@@ -5,37 +5,29 @@ interface Teacher {
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  [key: string]: any; // allow extra attributes like contract
+  [key: string]: any;
 }
 
-// Example Teacher
 const teacher3: Teacher = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
+  firstName: "John",
+  lastName: "Doe",
+  location: "London",
   fullTimeEmployee: false,
   contract: false,
 };
 
-console.log(teacher3);
-
-// 2. Director interface extending Teacher
+// 2. Directors interface
 interface Directors extends Teacher {
   numberOfReports: number;
 }
 
 const director1: Directors = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
+  firstName: "John",
+  lastName: "Doe",
+  location: "London",
   fullTimeEmployee: true,
   numberOfReports: 17,
 };
-
-console.log(director1);
-
-
-
 
 // 3. printTeacherFunction interface
 interface printTeacherFunction {
@@ -48,30 +40,22 @@ function printTeacher(firstName: string, lastName: string): string {
   return `${firstName}. ${lastName}`;
 }
 
-
-// Test
 console.log(printTeacher("John", "Doe")); // J. Doe
 
-
-
-
-
-
-
-
-// Student interface for constructor
+// 5. Student constructor interface
 interface StudentConstructor {
   firstName: string;
   lastName: string;
 }
 
-// Student class interface
+// 6. Student class interface
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-class StudentClass implements StudentClassInterface {
+// 7. Class definition (must match exactly)
+class StudentClass {
   firstName: string;
   lastName: string;
 
@@ -89,7 +73,6 @@ class StudentClass implements StudentClassInterface {
   }
 }
 
-// Example
 const student = new StudentClass({ firstName: "Jane", lastName: "Doe" });
 console.log(student.displayName());
 console.log(student.workOnHomework());
