@@ -38,27 +38,23 @@ class Teacher implements TeacherInterface {
   }
 }
 
+// createEmployee function
 function createEmployee(salary: number | string): Director | Teacher {
   if (typeof salary === 'string') {
-    salary = parseInt(salary.replace('$', '')); // remove dollar sign first
+    salary = parseInt(salary.replace('$', ''));
   }
 
-  if (salary < 500) {   // checker expects this exact string
+  if (salary < 500) {
     return new Teacher();
   } else {
     return new Director();
   }
 }
 
-// Test
-console.log(createEmployee(200));    // Teacher
-console.log(createEmployee(1000));   // Director
-console.log(createEmployee('$500')); // Director
-
-// 1. Define the literal type
+// Type literal
 type Subjects = 'Math' | 'History';
 
-// 2. Function with strict type annotation
+// teachClass function
 function teachClass(todayClass: Subjects): string {
   if (todayClass === 'Math') {
     return 'Teaching Math';
@@ -69,22 +65,10 @@ function teachClass(todayClass: Subjects): string {
   return '';
 }
 
-// Test examples
-console.log(teachClass('Math'));    // Teaching Math
-console.log(teachClass('History')); // Teaching History
+// Example tests
+console.log(createEmployee(200));    // Teacher
+console.log(createEmployee(1000));   // Director
+console.log(createEmployee('$500')); // Director
 
-
-// Test examples
-console.log(teachClass('Math'));    // Teaching Math
-console.log(teachClass('History')); // Teaching History
-
-
-// Tests
-console.log(teachClass('Math'));     // Teaching Math
-console.log(teachClass('History'));  // Teaching History
-
-
-
-// Test examples
 console.log(teachClass('Math'));     // Teaching Math
 console.log(teachClass('History'));  // Teaching History
